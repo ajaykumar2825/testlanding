@@ -1,143 +1,100 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { FloatingBadge } from '@/components/ui/FloatingBadge';
-import { AvatarGroup } from '@/components/ui/AvatarGroup';
-import { Button, LinkButton } from '@/components/ui/Button';
+import { motion, useReducedMotion } from 'framer-motion';
+import { Bot, Boxes, Cpu, Database, Dock, Sparkles } from 'lucide-react';
+import { LinkButton, DemoIcon } from '@/components/ui/Button';
 
-const avatars = [
-  { src: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face', alt: 'User 1' },
-  { src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face', alt: 'User 2' },
-  { src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face', alt: 'User 3' },
-  { src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face', alt: 'User 4' },
+const badges = [
+  { icon: Cpu, label: 'GPT-5', className: 'top-[16%] -right-3 sm:-right-6' },
+  { icon: Boxes, label: 'Ollama', className: 'top-[44%] -left-3 sm:-left-8' },
+  { icon: Database, label: 'RAG', className: 'bottom-[30%] -right-2 sm:-right-5' },
+  { icon: Bot, label: 'Multi-Agent', className: 'bottom-[12%] -left-2 sm:-left-6' },
+  { icon: Dock, label: 'Docker Ready', className: 'top-[30%] -right-6 sm:-right-10' },
 ];
 
-const highlights = [
-  'No-code + developer-friendly AI agent builder',
-  'Supports local and cloud AI models',
-  'Multi-agent orchestration',
-  'Built-in RAG knowledge base',
-  'One-click deployment',
-];
+export function Hero() {
+  const reduce = useReducedMotion();
 
-export const Hero = () => {
+  const fadeUp = reduce
+    ? {}
+    : {
+        initial: { opacity: 0, y: 16 },
+        animate: { opacity: 1, y: 0 },
+        transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] as const },
+      };
+
   return (
-    <section className="relative w-full max-w-[1280px] mx-auto px-6 sm:px-12 lg:px-20 pt-[80px] md:pt-[80px] pb-20 lg:pb-28" aria-labelledby="hero-heading">
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="hero-gradient-1 absolute top-[10%] left-[5%] w-[400px] h-[400px] rounded-full blur-[120px]" aria-hidden="true" />
-        <div className="hero-gradient-2 absolute top-[10%] right-[5%] w-[400px] h-[400px] rounded-full blur-[120px]" aria-hidden="true" />
+    <section className="relative overflow-hidden" aria-labelledby="hero-heading">
+      <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+        <div className="absolute -top-32 left-1/4 h-[480px] w-[480px] rounded-full bg-blue-200/40 blur-[120px]" />
+        <div className="absolute top-1/3 -right-24 h-[380px] w-[380px] rounded-full bg-accent/20 blur-[110px]" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-        <div className="lg:col-span-5 flex flex-col justify-center items-start text-left max-w-[620px] lg:pr-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="w-full"
+      <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 items-center gap-12 px-6 pb-16 pt-16 sm:px-8 lg:grid-cols-12 lg:gap-8 lg:px-12 lg:pb-24 lg:pt-20">
+        <motion.div className="lg:col-span-6" {...fadeUp}>
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-3 py-1 text-xs font-medium text-primary">
+            <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
+            Now accepting early access
+          </span>
+
+          <h1
+            id="hero-heading"
+            className="mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-[3.5rem]"
           >
-            <div className="px-3 py-1.5 rounded-full bg-black/5 border border-black/5 flex items-center gap-3 w-fit shadow-xs">
-              <AvatarGroup avatars={avatars} />
-              <span className="text-[12px] text-black/80 font-sans">
-                Trusted by <span className="font-bold text-neutral-900">10,000+ users</span> worldwide
-              </span>
-            </div>
+            Build AI Employees.
+            <br />
+            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Deploy Them Anywhere.
+            </span>
+          </h1>
 
-            <h1
-              id="hero-heading"
-              className="font-outfit font-black text-[36px] sm:text-[44px] lg:text-[60px] leading-[1.08] tracking-[-3px] mt-6 select-none text-black text-balance"
-            >
-              Forge Intelligent AI Agents.<br />
-              <span className="text-[#0084FF]">Deploy Them Anywhere.</span>
-            </h1>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink/70">
+            Enterprise AI platform for building, deploying, and managing autonomous AI agents with memory, workflows,
+            knowledge bases, and multi-model orchestration.
+          </p>
 
-            <p className="font-sans text-[18px] text-black/60 tracking-[-0.5px] leading-relaxed mt-5 max-w-[480px]">
-              Build autonomous AI agents with memory, tools, workflows, and integrations from one unified platform. Create production-ready AI assistants for businesses, developers, and teams in minutes.
-            </p>
+          <div className="mt-8 flex flex-wrap items-center gap-4">
+            <LinkButton href="#get-started" size="lg">
+              Get Started Free
+            </LinkButton>
+            <LinkButton href="#demo" variant="demo" size="lg" icon={DemoIcon}>
+              Watch Demo
+            </LinkButton>
+          </div>
+        </motion.div>
 
-            <div className="mt-8 flex flex-wrap items-center gap-6">
-              <LinkButton
-                size="md"
-                variant="primary"
-                icon="chevron"
-                iconPosition="right"
-                href="#get-started"
-              >
-                Get Started Free
-              </LinkButton>
-              <LinkButton variant="demo" size="sm" icon="play" iconPosition="left" href="#demo">
-                Watch Live Demo
-              </LinkButton>
-            </div>
-
-            <div className="mt-10 flex flex-wrap gap-3" role="list" aria-label="Key highlights">
-              {highlights.map((highlight, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                  className="px-3 py-1.5 rounded-full bg-black/5 border border-black/5 text-[12px] font-medium text-black/70 whitespace-nowrap"
-                  role="listitem"
-                >
-                  {highlight}
-                </motion.span>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-
-        <div className="lg:col-span-7 relative w-full flex items-center justify-center lg:justify-end py-10 pointer-events-none">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-[600px]"
-          >
-            <div className="absolute top-[30%] left-[20%] w-[420px] h-[420px] bg-sky-400/15 rounded-full blur-[110px] -z-10 animate-pulse-slow" aria-hidden="true" />
-
-            <svg
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[52%] w-[620px] h-[620px] -z-10 opacity-35"
-              viewBox="0 0 620 620"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+        <div className="relative lg:col-span-6">
+          <div className="relative mx-auto w-full max-w-[520px]">
+            <div
+              className="absolute left-1/2 top-1/2 -z-10 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-primary/15 to-accent/15 blur-[90px]"
               aria-hidden="true"
-            >
-              <circle cx="310" cy="310" r="280" stroke="url(#orbitalGradient1)" strokeWidth="1.5" strokeDasharray="8 12" />
-              <circle cx="310" cy="310" r="220" stroke="url(#orbitalGradient2)" strokeWidth="1" strokeDasharray="4 8" />
-              <circle cx="310" cy="310" r="160" stroke="url(#orbitalGradient1)" strokeWidth="0.5" strokeDasharray="2 6" />
-              <defs>
-                <linearGradient id="orbitalGradient1" x1="0" y1="0" x2="620" y2="620">
-                  <stop offset="0%" stopColor="#60B1FF" stopOpacity="0.6" />
-                  <stop offset="100%" stopColor="#319AFF" stopOpacity="0.3" />
-                </linearGradient>
-                <linearGradient id="orbitalGradient2" x1="620" y1="0" x2="0" y2="620">
-                  <stop offset="0%" stopColor="#319AFF" stopOpacity="0.4" />
-                  <stop offset="100%" stopColor="#60B1FF" stopOpacity="0.2" />
-                </linearGradient>
-              </defs>
-            </svg>
+            />
+            <video
+              src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/hero_robo_video.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full rounded-24 border border-ink/5 object-cover shadow-card"
+              aria-label="AgentForge autonomous agent demonstration"
+              poster="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/hero_robo_poster.jpg"
+            />
 
-            <div className="relative z-10">
-              <video
-                src="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/hero_robo_video.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-auto max-w-[600px] rounded-[24px] select-none block"
-                style={{ filter: 'brightness(1.02) contrast(1.04)' }}
-                aria-label="AgentForge AI agent demonstration"
-                poster="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/hero_robo_poster.jpg"
-              />
-            </div>
-
-            <FloatingBadge variant="email" className="absolute top-[18%] -right-4 sm:-right-10 md:-right-14" animate />
-            <FloatingBadge variant="summarize" className="absolute top-[48%] -left-6 sm:-left-12 md:-left-16" animate />
-            <FloatingBadge variant="todo" className="absolute bottom-[18%] -right-4 sm:-right-8 md:-right-12" animate />
-          </motion.div>
+            {badges.map((badge) => {
+              const Icon = badge.icon;
+              return (
+                <div
+                  key={badge.label}
+                  className={`absolute hidden items-center gap-1.5 rounded-full border border-ink/5 bg-white/90 px-3 py-1.5 text-xs font-semibold text-ink shadow-soft backdrop-blur-md animate-float-slow sm:flex ${badge.className}`}
+                >
+                  <Icon className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+                  {badge.label}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
   );
-};
+}

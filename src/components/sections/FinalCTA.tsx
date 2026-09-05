@@ -1,75 +1,45 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Button, LinkButton } from '@/components/ui/Button';
-import { Github, FileText, ArrowRight } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { LinkButton } from '@/components/ui/Button';
 
-export const FinalCTA = () => {
+export function FinalCTA() {
+  const reduce = useReducedMotion();
+
   return (
-    <section id="get-started" className="py-20 lg:py-28" aria-labelledby="cta-heading">
-      <div className="max-w-[1280px] mx-auto px-6 sm:px-12 lg:px-20">
+    <section id="get-started" aria-labelledby="cta-heading" className="relative overflow-hidden py-24">
+      <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+        <div className="absolute left-1/2 top-1/2 h-[400px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-tr from-primary/15 to-accent/15 blur-[110px]" />
+      </div>
+
+      <div className="mx-auto w-full max-w-[1200px] px-6 sm:px-8 lg:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-16"
+          className="mx-auto max-w-2xl text-center"
+          {...(reduce
+            ? {}
+            : {
+                initial: { opacity: 0, y: 20 },
+                whileInView: { opacity: 1, y: 0 },
+                viewport: { once: true, margin: '-80px' },
+                transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
+              })}
         >
-          <h2 id="cta-heading" className="font-outfit font-bold text-[36px] sm:text-[44px] lg:text-[56px] leading-[1.08] tracking-[-3px] text-black mb-6">
-            Start Building AI Agents <br />
-            <span className="text-[#0084FF]">Today</span>
+          <h2 id="cta-heading" className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+            Build your AI workforce today
           </h2>
-          <p className="font-sans text-[18px] text-black/60 tracking-[-0.5px] leading-relaxed max-w-[700px] mx-auto">
-            Create intelligent agents that can think, remember, retrieve knowledge, call tools, automate workflows, and scale with your projects.
+          <p className="mt-4 text-lg text-ink/60">
+            Join the early access waitlist. Deploy your first autonomous agent in minutes.
           </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16"
-        >
-          <LinkButton size="lg" variant="primary" icon="chevron" iconPosition="right" href="#get-started">
-            Get Started Free
-          </LinkButton>
-          <LinkButton size="lg" variant="secondary" icon="file-text" iconPosition="left" href="#docs">
-            Explore Documentation
-          </LinkButton>
-          <LinkButton size="lg" variant="ghost" icon="github" iconPosition="left" href="#github" target="_blank" rel="noopener noreferrer">
-            View GitHub Repository
-          </LinkButton>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="glass-panel p-8 lg:p-12 rounded-[24px]"
-          style={{
-            background: 'linear-gradient(to bottom right, rgba(0,132,255,0.05), rgba(0,132,255,0.02))',
-            backdropFilter: 'blur(20px)',
-            border: '1px solid rgba(0,132,255,0.15)',
-          }}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="font-outfit font-black text-[48px] text-[#0084FF] mb-2">100%</div>
-              <div className="font-sans text-[15px] text-black/60">Open Source Core</div>
-            </div>
-            <div className="border-x border-black/10 my-8 md:my-0">
-              <div className="font-outfit font-black text-[48px] text-[#0084FF] mb-2">50+</div>
-              <div className="font-sans text-[15px] text-black/60">AI Models Supported</div>
-            </div>
-            <div>
-              <div className="font-outfit font-black text-[48px] text-[#0084FF] mb-2">200+</div>
-              <div className="font-sans text-[15px] text-black/60">Integrations Ready</div>
-            </div>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <LinkButton href="#get-started" size="lg">
+              Get Started Free
+            </LinkButton>
+            <LinkButton href="#demo" variant="secondary" size="lg">
+              Book a Demo
+            </LinkButton>
           </div>
         </motion.div>
       </div>
     </section>
   );
-};
+}

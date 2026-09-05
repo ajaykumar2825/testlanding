@@ -1,123 +1,73 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import {
-  GitBranch,
-  Brain,
-  Database,
-  Zap,
-  Mic,
-  Image,
-  GitBranch as Workflow,
-  BarChart,
-  UserCheck,
-  Code,
-} from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { Network, BrainCircuit, Plug, Rocket } from 'lucide-react';
+import { Container, Section } from '@/components/ui/Container';
 
 const features = [
   {
-    icon: GitBranch,
+    icon: Network,
     title: 'Multi-Agent Orchestration',
-    description: 'Create teams of AI agents that collaborate on complex tasks, delegate work, and share context seamlessly.',
+    description: 'Coordinate teams of AI agents that delegate, share context, and collaborate on complex tasks.',
   },
   {
-    icon: Brain,
-    title: 'Persistent Memory',
-    description: 'Agents remember conversations, context, and learnings across sessions for continuous improvement.',
+    icon: BrainCircuit,
+    title: 'Long-Term Memory + RAG',
+    description: 'Agents retain context across sessions and retrieve knowledge from your private sources.',
   },
   {
-    icon: Database,
-    title: 'Knowledge Base (RAG)',
-    description: 'Upload PDFs, websites, documents, CSVs, and databases. Agents retrieve relevant information instantly.',
-  },
-  {
-    icon: Zap,
+    icon: Plug,
     title: 'Tool Calling & Integrations',
-    description: 'Connect APIs, webhooks, SQL databases, calendars, email, Slack, and 200+ integrations.',
+    description: 'Connect APIs, databases, webhooks, and live services so agents act on real data.',
   },
   {
-    icon: Mic,
-    title: 'Voice & Chat Agents',
-    description: 'Build conversational assistants with text and voice interfaces for natural interactions.',
-  },
-  {
-    icon: Image,
-    title: 'Image & Document Intelligence',
-    description: 'Analyze files, images, invoices, reports, and extract structured data automatically.',
-  },
-  {
-    icon: Workflow,
-    title: 'Visual Workflow Builder',
-    description: 'Design complex AI workflows visually with drag-and-drop, branching, and conditional logic.',
-  },
-  {
-    icon: BarChart,
-    title: 'Analytics Dashboard',
-    description: 'Monitor executions, latency, token usage, API costs, success rates, and model performance.',
-  },
-  {
-    icon: UserCheck,
-    title: 'Human Approval Steps',
-    description: 'Keep humans in the loop for critical decisions with configurable approval workflows.',
-  },
-  {
-    icon: Code,
-    title: 'API & SDK Access',
-    description: 'Integrate agents into your own applications with REST APIs, SDKs, and webhooks.',
+    icon: Rocket,
+    title: 'Deploy Anywhere',
+    description: 'Ship agents to Docker, the cloud, or your own servers with a single configuration.',
   },
 ];
 
-export const CoreFeatures = () => {
-  return (
-    <section id="features" className="py-20 lg:py-28" aria-labelledby="features-heading">
-      <div className="max-w-[1280px] mx-auto px-6 sm:px-12 lg:px-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-16"
-        >
-          <h2 id="features-heading" className="font-outfit font-bold text-[36px] sm:text-[44px] lg:text-[56px] leading-[1.08] tracking-[-3px] text-black mb-4">
-            Everything you need to build <br />
-            <span className="text-[#0084FF]">powerful AI agents</span>
-          </h2>
-        </motion.div>
+export function CoreFeatures() {
+  const reduce = useReducedMotion();
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          role="list"
-          aria-label="Core features"
-        >
-          {features.map((feature, index) => (
-            <motion.article
-              key={feature.title}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 + index * 0.05 }}
-              className="glass-panel p-6 rounded-[20px] hover:glass-panel-hover transition-all duration-300 group"
-              style={{
-                background: 'linear-gradient(to bottom right, rgba(255,255,255,0.75), rgba(255,255,255,0.45))',
-                backdropFilter: 'blur(20px)',
-                border: '1px solid rgba(255,255,255,0.7)',
-                boxShadow: 'inset 0 2.5px 4px rgba(255,255,255,0.8)',
-              }}
-              role="listitem"
-              whileHover={{ y: -2, scale: 1.02 }}
-            >
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0084FF] to-[#0066CC] flex items-center justify-center mb-4 shadow-[0_4px_12px_rgba(0,132,255,0.3)] group-hover:scale-110 transition-transform duration-300">
-                <feature.icon className="w-6 h-6 text-white" aria-hidden="true" />
-              </div>
-              <h3 className="font-outfit font-bold text-[20px] text-black mb-2">{feature.title}</h3>
-              <p className="font-sans text-[15px] text-black/60 leading-relaxed">{feature.description}</p>
-            </motion.article>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+  return (
+    <Section id="features" ariaLabelledBy="features-heading" className="py-24">
+      <Container>
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 id="features-heading" className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+            Everything you need to build production agents
+          </h2>
+          <p className="mt-4 text-lg text-ink/60">
+            One platform for the full agent lifecycle — no glue code, no vendor lock-in.
+          </p>
+        </div>
+
+        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <motion.div
+                key={feature.title}
+                className="group rounded-24 border border-ink/5 bg-white p-6 shadow-soft transition-shadow hover:shadow-card"
+                {...(reduce
+                  ? {}
+                  : {
+                      initial: { opacity: 0, y: 20 },
+                      whileInView: { opacity: 1, y: 0 },
+                      viewport: { once: true, margin: '-80px' },
+                      transition: { duration: 0.5, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] as const },
+                    })}
+              >
+                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent shadow-cta">
+                  <Icon className="h-6 w-6 text-white" aria-hidden="true" />
+                </div>
+                <h3 className="text-lg font-semibold text-ink">{feature.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink/60">{feature.description}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </Container>
+    </Section>
   );
-};
+}

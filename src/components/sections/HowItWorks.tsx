@@ -1,119 +1,134 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Bot, Brain, Database, Rocket } from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
+import { Cpu, Hammer, Rocket } from 'lucide-react';
+import { Container, Section } from '@/components/ui/Container';
 
 const steps = [
   {
-    number: '01',
-    icon: Bot,
-    title: 'Choose an AI Model',
-    description: 'Select from 50+ models including GPT-4, Claude, Gemini, DeepSeek, Llama, or run local models via Ollama for complete privacy.',
+    icon: Cpu,
+    title: 'Choose Your AI Model',
+    description: 'Pick a cloud model or run a local one with Ollama. Bring your own API keys.',
   },
   {
-    number: '02',
-    icon: Brain,
-    title: 'Give Instructions & Memory',
-    description: 'Define your agent\'s personality, goals, and constraints. Enable persistent memory so it learns and improves over time.',
+    icon: Hammer,
+    title: 'Build Your Agent',
+    description: 'Deploy your agent with tools, memory, and a knowledge base. Test any workflow instantly.',
   },
   {
-    number: '03',
-    icon: Database,
-    title: 'Connect Tools & Knowledge',
-    description: 'Attach knowledge bases (PDFs, websites, databases) and connect 200+ integrations like Slack, GitHub, APIs, and databases.',
-  },
-  {
-    number: '04',
     icon: Rocket,
     title: 'Deploy & Monitor',
-    description: 'Launch with one click. Track executions, token usage, costs, and performance in real-time analytics dashboard.',
+    description: 'Ship to the cloud or your own infrastructure and watch live execution, usage, and cost.',
   },
 ];
 
-const supportedInputs = [
-  'PDFs', 'Word Documents', 'CSV Files', 'Databases',
-  'Websites', 'APIs', 'Images', 'Audio'
-];
+export function HowItWorks() {
+  const reduce = useReducedMotion();
 
-export const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="py-20 lg:py-28" aria-labelledby="how-heading">
-      <div className="max-w-[1280px] mx-auto px-6 sm:px-12 lg:px-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-16"
-        >
-          <h2 id="how-heading" className="font-outfit font-bold text-[36px] sm:text-[44px] lg:text-[56px] leading-[1.08] tracking-[-3px] text-black mb-4">
-            Build and launch an AI agent in <br />
-            <span className="text-[#0084FF]">four simple steps</span>
+    <Section id="how-it-works" ariaLabelledBy="how-heading" className="bg-white py-24">
+      <Container>
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 id="how-heading" className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">
+            From model to deployed agent in three steps
           </h2>
-        </motion.div>
+          <p className="mt-4 text-lg text-ink/60">No scaffolds. No boilerplate. Just config and go.</p>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="space-y-12 lg:space-y-0 lg:grid lg:grid-cols-4 lg:gap-8"
-          role="list"
-          aria-label="Build steps"
-        >
-          {steps.map((step, index) => (
-            <motion.article
-              key={step.number}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-              className="relative flex flex-col items-center text-center lg:items-start lg:text-left group"
-              role="listitem"
-            >
-              <div className="w-16 h-16 rounded-[20px] bg-gradient-to-br from-[#0084FF] to-[#0066CC] flex items-center justify-center mb-6 shadow-[0_4px_12px_rgba(0,132,255,0.3)] group-hover:scale-110 transition-transform duration-300">
-                <step.icon className="w-8 h-8 text-white" aria-hidden="true" />
-              </div>
-              <div className="font-outfit font-black text-[48px] text-[#0084FF]/20 mb-2">{step.number}</div>
-              <h3 className="font-outfit font-bold text-[24px] text-black mb-3">{step.title}</h3>
-              <p className="font-sans text-[16px] text-black/60 leading-relaxed max-w-[300px]">{step.description}</p>
-              
-              {index < steps.length - 1 && (
-                <motion.div
-                  className="hidden lg:block absolute top-8 left-[calc(50%+8px)] w-full h-0.5 bg-gradient-to-r from-[#0084FF]/30 to-transparent -z-10"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 0.8, delay: 0.5 + index * 0.1, ease: 'easeOut' }}
-                  style={{ transformOrigin: 'left center' }}
-                  aria-hidden="true"
-                />
-              )}
-            </motion.article>
-          ))}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-20"
-        >
-          <h3 className="font-outfit font-bold text-[24px] text-black text-center mb-8">Supported Inputs</h3>
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            {supportedInputs.map((input, index) => (
-              <motion.span
-                key={input}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: 0.1 + index * 0.05 }}
-                className="px-4 py-2 rounded-full bg-white/80 border border-black/10 text-black/70 font-medium text-sm"
+        <ol className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
+          {steps.map((step, index) => {
+            const Icon = step.icon;
+            return (
+              <motion.li
+                key={step.title}
+                className="flex flex-col items-start"
+                {...(reduce
+                  ? {}
+                  : {
+                      initial: { opacity: 0, y: 20 },
+                      whileInView: { opacity: 1, y: 0 },
+                      viewport: { once: true, margin: '-80px' },
+                      transition: { duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] as const },
+                    })}
               >
-                {input}
-              </motion.span>
-            ))}
-          </div>
+                <div className="mb-4 inline-flex items-center gap-3">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <span className="text-sm font-semibold tracking-wide text-primary/70">Step {index + 1}</span>
+                </div>
+                <h3 className="text-lg font-semibold text-ink">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink/60">{step.description}</p>
+              </motion.li>
+            );
+          })}
+        </ol>
+
+        <motion.div
+          className="mt-20"
+          {...(reduce
+            ? {}
+            : {
+                initial: { opacity: 0, y: 24 },
+                whileInView: { opacity: 1, y: 0 },
+                viewport: { once: true, margin: '-80px' },
+                transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
+              })}
+        >
+          <DashboardPreview />
         </motion.div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
-};
+}
+
+function DashboardPreview() {
+  return (
+    <div
+      className="overflow-hidden rounded-24 border border-ink/5 bg-surface shadow-card"
+      role="img"
+      aria-label="AgentForge monitoring dashboard preview"
+    >
+      <div className="flex items-center gap-2 border-b border-ink/5 bg-white px-5 py-3">
+        <span className="h-3 w-3 rounded-full bg-ink/10" />
+        <span className="h-3 w-3 rounded-full bg-ink/10" />
+        <span className="h-3 w-3 rounded-full bg-ink/10" />
+        <span className="ml-4 text-xs font-medium text-ink/50">agentforge.dev — Agent Console</span>
+      </div>
+      <div className="grid grid-cols-1 gap-4 p-5 sm:grid-cols-3">
+        <div className="rounded-16 border border-ink/5 bg-white p-4">
+          <p className="text-xs font-medium text-ink/50">Active Agents</p>
+          <p className="mt-1 text-2xl font-bold text-ink">24</p>
+          <div className="mt-3 flex h-1.5 overflow-hidden rounded-full bg-ink/5">
+            <div className="h-full w-2/3 rounded-full bg-primary" />
+          </div>
+        </div>
+        <div className="rounded-16 border border-ink/5 bg-white p-4">
+          <p className="text-xs font-medium text-ink/50">Executions Today</p>
+          <p className="mt-1 text-2xl font-bold text-ink">4,182</p>
+          <div className="mt-3 flex h-1.5 overflow-hidden rounded-full bg-ink/5">
+            <div className="h-full w-4/5 rounded-full bg-accent" />
+          </div>
+        </div>
+        <div className="rounded-16 border border-ink/5 bg-white p-4">
+          <p className="text-xs font-medium text-ink/50">Avg. Latency</p>
+          <p className="mt-1 text-2xl font-bold text-ink">320ms</p>
+          <div className="mt-3 flex h-1.5 overflow-hidden rounded-full bg-ink/5">
+            <div className="h-full w-1/2 rounded-full bg-emerald-400" />
+          </div>
+        </div>
+      </div>
+      <div className="px-5 pb-5">
+        <div className="rounded-16 border border-ink/5 bg-white p-4">
+          <p className="mb-4 text-xs font-medium text-ink/50">Execution Stream</p>
+          <div className="space-y-3">
+            <div className="h-2.5 w-3/4 rounded-full bg-ink/5" />
+            <div className="h-2.5 w-full rounded-full bg-ink/5" />
+            <div className="h-2.5 w-2/3 rounded-full bg-primary/20" />
+            <div className="h-2.5 w-5/6 rounded-full bg-ink/5" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

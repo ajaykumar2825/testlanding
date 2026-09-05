@@ -8,62 +8,31 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        outfit: ['var(--font-outfit)', 'sans-serif'],
-        fustat: ['var(--font-fustat)', 'sans-serif'],
-        sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-inter)', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
-        primary: {
-          DEFAULT: '#0084FF',
-          hover: '#0074E0',
-          active: '#0066CC',
-        },
-        neutral: {
-          500: '#6B7280',
-          900: '#171717',
-        },
+        primary: '#2563EB',
+        accent: '#60A5FA',
+        surface: '#F8FAFC',
+        ink: '#111827',
       },
       borderRadius: {
-        '16': '16px',
-        '20': '20px',
-        '24': '24px',
+        16: '16px',
+        20: '20px',
+        24: '24px',
       },
       boxShadow: {
-        'liquid-glass': 'inset 0 2.5px 4px rgba(255,255,255,0.8)',
-        'cta-primary': 'inset 0px 4px 4px 0px rgba(255,255,255,0.35), 0 10px 25px -5px rgba(0, 132, 255, 0.25)',
-        'badge-blue': '0 12px 32px -4px rgba(0,132,255,0.12)',
-        'badge-green': '0 12px 32px -4px rgba(16,185,129,0.12)',
-        'badge-purple': '0 12px 32px -4px rgba(147,51,234,0.12)',
-        'icon-blue': '0 4px 12px rgba(0,132,255,0.3)',
-        'icon-green': '0 4px 12px rgba(16,185,129,0.3)',
-        'icon-purple': '0 4px 12px rgba(147,51,234,0.3)',
-      },
-      backdropBlur: {
-        '20': '20px',
-        '40': '40px',
-        '50': '50px',
-        '100': '100px',
-        '110': '110px',
-        '120': '120px',
+        soft: '0 1px 2px rgba(16, 24, 40, 0.04), 0 8px 24px -8px rgba(16, 24, 40, 0.08)',
+        card: '0 1px 2px rgba(16, 24, 40, 0.04), 0 20px 48px -24px rgba(37, 99, 235, 0.16)',
+        cta: '0 1px 2px rgba(16, 24, 40, 0.08), 0 16px 32px -12px rgba(37, 99, 235, 0.4)',
       },
       animation: {
-        'pulse-slow': 'pulse 7s ease-in-out infinite',
-        'float-1': 'float-1 5s ease-in-out infinite',
-        'float-2': 'float-2 5.5s ease-in-out infinite',
-        'float-3': 'float-3 4.8s ease-in-out infinite',
+        'float-slow': 'float 6s ease-in-out infinite',
       },
       keyframes: {
-        'float-1': {
-          '0%, 100%': { transform: 'translate(0, 0)' },
-          '50%': { transform: 'translate(2px, -8px)' },
-        },
-        'float-2': {
-          '0%, 100%': { transform: 'translate(0, 0)' },
-          '50%': { transform: 'translate(-2px, 8px)' },
-        },
-        'float-3': {
-          '0%, 100%': { transform: 'translate(0, 0)' },
-          '50%': { transform: 'translate(-1px, -10px)' },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-8px)' },
         },
       },
     },
