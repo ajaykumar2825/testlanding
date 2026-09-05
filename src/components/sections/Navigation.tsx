@@ -8,8 +8,8 @@ import { LinkButton } from '@/components/ui/Button';
 const links = [
   { href: '#features', label: 'Features' },
   { href: '#how-it-works', label: 'How It Works' },
-  { href: '#workforce', label: 'AI Workforce' },
-  { href: '#why', label: 'Why AgentForge' },
+  { href: '#workforce', label: 'AI Project Team' },
+  { href: '#why', label: 'Automation' },
   { href: '#faq', label: 'FAQ' },
 ];
 
@@ -38,7 +38,7 @@ export function Navigation() {
 
         <div className="hidden md:block">
           <LinkButton href="#get-started" size="sm">
-            Get Started Free
+            Get Early Access
           </LinkButton>
         </div>
 
@@ -75,7 +75,7 @@ export function Navigation() {
           </ul>
           <div className="mt-4">
             <LinkButton href="#get-started" className="w-full" onClick={() => setOpen(false)}>
-              Get Started Free
+              Get Early Access
             </LinkButton>
           </div>
         </nav>

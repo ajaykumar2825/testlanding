@@ -25,17 +25,15 @@ export function FinalCTA() {
               })}
         >
           <h2 id="cta-heading" className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-            Build your AI workforce today
+            Let AI handle project management busywork
           </h2>
-          <p className="mt-4 text-lg text-ink/60">
-            Join the early access waitlist. Deploy your first autonomous agent in minutes.
-          </p>
+          <p className="mt-4 text-lg text-ink/60">Join early access and put your weekly PM admin on autopilot.</p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <LinkButton href="#get-started" size="lg">
-              Get Started Free
+              Join Early Access
             </LinkButton>
             <LinkButton href="#demo" variant="secondary" size="lg">
-              Book a Demo
+              Watch Demo
             </LinkButton>
           </div>
         </motion.div>

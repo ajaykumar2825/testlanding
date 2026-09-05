@@ -18,7 +18,7 @@ export function Footer() {
             AgentForge
           </div>
           <p className="max-w-xs text-sm text-ink/60">
-            Build, deploy, and manage autonomous AI agents with memory, workflows, RAG, and local or cloud LLMs.
+            The AI project manager that runs sprints, standups, meeting notes, and reports for your team.
           </p>
         </div>
 

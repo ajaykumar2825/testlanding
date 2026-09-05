@@ -7,24 +7,24 @@ import { Container, Section } from '@/components/ui/Container';
 
 const faqs = [
   {
-    question: 'Can I run AgentForge on my own infrastructure?',
+    question: 'How does AgentForge fit into our existing tools?',
     answer:
-      'Yes. AgentForge is self-hostable and ships as a Docker image, so your data never leaves your environment when you run it locally.',
+      'AgentForge connects to the tools you already use — Slack, Jira, GitHub, Notion, and Google Calendar — so there is no new workflow to learn.',
   },
   {
-    question: 'Which AI models can I use?',
+    question: 'Will it replace our project manager or PM tools?',
     answer:
-      'Any model you can reach by API — or bring your own key for OpenAI. You can also run open models locally through Ollama with no usage fees.',
+      'No. It automates the repetitive work around them — standups, notes, reminders, and reports — so your PMs can focus on decisions, not logistics.',
   },
   {
-    question: 'Do agents retain memory across sessions?',
+    question: 'Is this built for small startup teams?',
     answer:
-      'Agents keep long-term memory with built-in retrieval (RAG), so they stay consistent and informed across conversations and tasks.',
+      'Yes. It is designed for lean teams that need clarity without the overhead of heavyweight enterprise project management suites.',
   },
   {
-    question: 'Can multiple agents work together?',
+    question: 'What does AgentForge automate first?',
     answer:
-      'Yes. Multi-agent orchestration is core to AgentForge — agents delegate work, share context, and complete end-to-end workflows as a team.',
+      'It starts with sprint planning, daily standups, meeting notes, and status reports — the busywork that consumes hours every week.',
   },
 ];
 

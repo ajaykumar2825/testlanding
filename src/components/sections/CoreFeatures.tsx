@@ -1,29 +1,29 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
-import { Network, BrainCircuit, Plug, Rocket } from 'lucide-react';
+import { CalendarRange, Megaphone, ClipboardList, Gauge } from 'lucide-react';
 import { Container, Section } from '@/components/ui/Container';
 
 const features = [
   {
-    icon: Network,
-    title: 'Multi-Agent Orchestration',
-    description: 'Coordinate teams of AI agents that delegate, share context, and collaborate on complex tasks.',
+    icon: CalendarRange,
+    title: 'AI Sprint Planning',
+    description: 'Plans realistic sprints from your backlog, using team capacity and past velocity.',
   },
   {
-    icon: BrainCircuit,
-    title: 'Long-Term Memory + RAG',
-    description: 'Agents retain context across sessions and retrieve knowledge from your private sources.',
+    icon: Megaphone,
+    title: 'Daily Standups & Follow-ups',
+    description: 'Async check-ins through chat, with follow-ups tracked until they are done.',
   },
   {
-    icon: Plug,
-    title: 'Tool Calling & Integrations',
-    description: 'Connect APIs, databases, webhooks, and live services so agents act on real data.',
+    icon: ClipboardList,
+    title: 'Meeting Notes & Action Items',
+    description: 'Meeting notes summarized with action items assigned to the right owner.',
   },
   {
-    icon: Rocket,
-    title: 'Deploy Anywhere',
-    description: 'Ship agents to Docker, the cloud, or your own servers with a single configuration.',
+    icon: Gauge,
+    title: 'Project Health Dashboard',
+    description: 'A live view of progress, blockers, and deadlines across every project.',
   },
 ];
 
@@ -35,10 +35,10 @@ export function CoreFeatures() {
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <h2 id="features-heading" className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-            Everything you need to build production agents
+            The AI copilot that runs your project operations
           </h2>
           <p className="mt-4 text-lg text-ink/60">
-            One platform for the full agent lifecycle — no glue code, no vendor lock-in.
+            Sprint planning, standups, meeting notes, and reporting — handled automatically.
           </p>
         </div>
 

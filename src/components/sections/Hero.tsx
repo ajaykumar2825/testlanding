@@ -1,15 +1,15 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
-import { Bot, Boxes, Cpu, Database, Dock, Sparkles } from 'lucide-react';
+import { Slack, Github, NotepadText, CalendarDays, MessageSquare, Sparkles } from 'lucide-react';
 import { LinkButton, DemoIcon } from '@/components/ui/Button';
 
 const badges = [
-  { icon: Cpu, label: 'GPT-5', className: 'top-[16%] -right-3 sm:-right-6' },
-  { icon: Boxes, label: 'Ollama', className: 'top-[44%] -left-3 sm:-left-8' },
-  { icon: Database, label: 'RAG', className: 'bottom-[30%] -right-2 sm:-right-5' },
-  { icon: Bot, label: 'Multi-Agent', className: 'bottom-[12%] -left-2 sm:-left-6' },
-  { icon: Dock, label: 'Docker Ready', className: 'top-[30%] -right-6 sm:-right-10' },
+  { icon: Slack, label: 'Slack', className: 'top-[16%] -right-3 sm:-right-6' },
+  { icon: Github, label: 'GitHub', className: 'top-[44%] -left-3 sm:-left-8' },
+  { icon: NotepadText, label: 'Jira', className: 'bottom-[30%] -right-2 sm:-right-5' },
+  { icon: CalendarDays, label: 'Notion', className: 'bottom-[12%] -left-2 sm:-left-6' },
+  { icon: MessageSquare, label: 'Calendar', className: 'top-[30%] -right-6 sm:-right-10' },
 ];
 
 export function Hero() {
@@ -41,21 +41,20 @@ export function Hero() {
             id="hero-heading"
             className="mt-6 text-4xl font-extrabold leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-[3.5rem]"
           >
-            Build AI Employees.
+            Your AI Project Manager
             <br />
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Deploy Them Anywhere.
+              Never Misses a Deadline.
             </span>
           </h1>
 
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink/70">
-            Enterprise AI platform for building, deploying, and managing autonomous AI agents with memory, workflows,
-            knowledge bases, and multi-model orchestration.
+            Automate sprint planning, standups, meeting notes, reminders, reports, and project tracking with AI.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <LinkButton href="#get-started" size="lg">
-              Get Started Free
+              Get Early Access
             </LinkButton>
             <LinkButton href="#demo" variant="demo" size="lg" icon={DemoIcon}>
               Watch Demo
@@ -76,7 +75,7 @@ export function Hero() {
               muted
               playsInline
               className="w-full rounded-24 border border-ink/5 object-cover shadow-card"
-              aria-label="AgentForge autonomous agent demonstration"
+              aria-label="AgentForge project management demonstration"
               poster="https://strvid.nyc3.cdn.digitaloceanspaces.com/motionsite/hero_robo_poster.jpg"
             />
 

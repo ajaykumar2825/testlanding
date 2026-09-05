@@ -5,11 +5,23 @@ import { Check, X } from 'lucide-react';
 import { Container, Section } from '@/components/ui/Container';
 
 const comparisons = [
-  { feature: 'Multi-Agent', agentforge: true, others: false },
-  { feature: 'Local + Cloud Models', agentforge: true, others: false },
-  { feature: 'Bring Your Own LLM', agentforge: true, others: false },
-  { feature: 'Memory + RAG', agentforge: true, others: false },
-  { feature: 'Docker Deployment', agentforge: true, others: false },
+  {
+    feature: 'Sprint planning',
+    manual: 'Hours in spreadsheets every cycle',
+    automated: 'Generated from your backlog in minutes',
+  },
+  {
+    feature: 'Daily standups',
+    manual: 'Another scheduled meeting to run',
+    automated: 'Async check-ins, no calendar blocks',
+  },
+  { feature: 'Meeting notes', manual: 'Notes scattered across docs', automated: 'Summarized with owners assigned' },
+  {
+    feature: 'Status reports',
+    manual: 'Friday scramble for updates',
+    automated: 'Drafted and delivered automatically',
+  },
+  { feature: 'Risk tracking', manual: 'Manually updated, often stale', automated: 'Flagged live before things slip' },
 ];
 
 export function WhyAgentForge() {
@@ -20,9 +32,11 @@ export function WhyAgentForge() {
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <h2 id="why-heading" className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-            Why teams choose AgentForge
+            Stop doing these tasks manually
           </h2>
-          <p className="mt-4 text-lg text-ink/60">The capabilities that matter most — built in, not bolted on.</p>
+          <p className="mt-4 text-lg text-ink/60">
+            The weekly project busywork that quietly eats your team&apos;s focus.
+          </p>
         </div>
 
         <motion.div
@@ -36,17 +50,17 @@ export function WhyAgentForge() {
                 transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
               })}
         >
-          <table className="w-full text-left" aria-label="AgentForge capability comparison">
+          <table className="w-full text-left" aria-label="Manual project management versus AgentForge automation">
             <thead>
               <tr className="border-b border-ink/10 bg-white">
                 <th scope="col" className="px-6 py-4 text-sm font-semibold text-ink">
-                  Capability
+                  Task
                 </th>
-                <th scope="col" className="px-6 py-4 text-center text-sm font-semibold text-primary">
-                  AgentForge
+                <th scope="col" className="px-6 py-4 text-left text-sm font-semibold text-ink/60">
+                  Manually
                 </th>
-                <th scope="col" className="px-6 py-4 text-center text-sm font-semibold text-ink/50">
-                  Others
+                <th scope="col" className="px-6 py-4 text-left text-sm font-semibold text-primary">
+                  With AgentForge
                 </th>
               </tr>
             </thead>
@@ -59,13 +73,17 @@ export function WhyAgentForge() {
                   <th scope="row" className="px-6 py-4 text-sm font-medium text-ink">
                     {row.feature}
                   </th>
-                  <td className="px-6 py-4 text-center">
-                    <Check className="mx-auto h-5 w-5 text-emerald-500" aria-label="Included" aria-hidden="true" />
-                    <span className="sr-only">Included</span>
+                  <td className="px-6 py-4">
+                    <div className="flex items-center gap-2 text-sm text-ink/50">
+                      <X className="h-4 w-4 shrink-0 text-ink/25" aria-hidden="true" />
+                      <span>{row.manual}</span>
+                    </div>
                   </td>
-                  <td className="px-6 py-4 text-center">
-                    <X className="mx-auto h-5 w-5 text-ink/25" aria-label="Not included" aria-hidden="true" />
-                    <span className="sr-only">Not included</span>
+                  <td className="px-6 py-4">
+                    <div className="flex items-center gap-2 text-sm font-medium text-primary">
+                      <Check className="h-4 w-4 shrink-0 text-emerald-500" aria-hidden="true" />
+                      <span>{row.automated}</span>
+                    </div>
                   </td>
                 </tr>
               ))}

@@ -2,10 +2,18 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'AgentForge — Build AI Employees That Work Together',
-  description:
-    'Build, deploy, and manage autonomous AI agents with memory, workflows, RAG, integrations, and local or cloud LLMs.',
-  keywords: ['AI agents', 'AI automation', 'multi-agent', 'RAG', 'LLM', 'autonomous agents', 'enterprise AI'],
+  title: 'AgentForge — Your AI Project Manager for Startup Teams',
+  description: 'Automate sprint planning, standups, meeting notes, reminders, reports, and project tracking with AI.',
+  keywords: [
+    'AI project management',
+    'sprint planning',
+    'AI automation',
+    'standups',
+    'meeting notes',
+    'project tracking',
+    'startup tools',
+    'remote teams',
+  ],
   authors: [{ name: 'AgentForge' }],
   creator: 'AgentForge',
   publisher: 'AgentForge',
@@ -14,18 +22,16 @@ export const metadata: Metadata = {
     icon: '/favicon.svg',
   },
   openGraph: {
-    title: 'AgentForge — Build AI Employees That Work Together',
-    description:
-      'Build, deploy, and manage autonomous AI agents with memory, workflows, RAG, integrations, and local or cloud LLMs.',
+    title: 'AgentForge — Your AI Project Manager for Startup Teams',
+    description: 'Automate sprint planning, standups, meeting notes, reminders, reports, and project tracking with AI.',
     type: 'website',
     locale: 'en_US',
     siteName: 'AgentForge',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AgentForge — Build AI Employees That Work Together',
-    description:
-      'Build, deploy, and manage autonomous AI agents with memory, workflows, RAG, integrations, and local or cloud LLMs.',
+    title: 'AgentForge — Your AI Project Manager for Startup Teams',
+    description: 'Automate sprint planning, standups, meeting notes, reminders, reports, and project tracking with AI.',
   },
 };
 
@@ -42,8 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@type': 'SoftwareApplication',
     name: 'AgentForge',
     applicationCategory: 'BusinessApplication',
-    description:
-      'Build, deploy, and manage autonomous AI agents with memory, workflows, RAG, integrations, and local or cloud LLMs.',
+    description: 'Automate sprint planning, standups, meeting notes, reminders, reports, and project tracking with AI.',
     operatingSystem: 'Web, Linux, macOS, Windows',
     url: 'https://agentforge.dev',
   };

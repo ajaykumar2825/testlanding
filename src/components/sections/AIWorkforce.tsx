@@ -1,34 +1,34 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
-import { Search, BarChart3, Code2, Workflow, ArrowRight } from 'lucide-react';
+import { CalendarRange, Sunrise, NotebookPen, Gauge, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { Container, Section } from '@/components/ui/Container';
 
 const agents = [
   {
-    icon: Search,
-    name: 'Research Agent',
-    description: 'Autonomously gathers, cross-references, and synthesizes information across sources.',
-    capability: 'Delivers a cited brief on any topic in minutes.',
+    icon: CalendarRange,
+    name: 'Sprint Planner',
+    description: 'Plans sprints around team capacity and priorities, so the work stays realistic.',
+    capability: 'Auto-drafts your plan for the next two weeks.',
   },
   {
-    icon: BarChart3,
-    name: 'Data Analyst Agent',
-    description: 'Queries datasets and produces insights, charts, and summaries in plain language.',
-    capability: 'Turns a raw SQL database into daily executive reports.',
+    icon: Sunrise,
+    name: 'Standup Manager',
+    description: 'Runs daily check-ins through chat and turns updates into tracked follow-ups.',
+    capability: 'Never chase a status update again.',
   },
   {
-    icon: Code2,
-    name: 'Coding Agent',
-    description: 'Writes, reviews, and refactors code with full repository context and tool access.',
-    capability: 'Fixes failing CI builds and files a PR on its own.',
+    icon: NotebookPen,
+    name: 'Meeting Assistant',
+    description: 'Takes notes, captures decisions, and files action items to the right owner.',
+    capability: 'Every meeting ends with clear next steps.',
   },
   {
-    icon: Workflow,
-    name: 'Automation Agent',
-    description: 'Runs scheduled workflows that call tools, transform data, and trigger downstream systems.',
-    capability: 'Automates your entire billing reconciliation overnight.',
+    icon: Gauge,
+    name: 'Project Health Monitor',
+    description: 'Tracks tasks, deadlines, and risks in one live view for the whole team.',
+    capability: 'Flags what is at risk before it slips.',
   },
 ];
 
@@ -41,17 +41,17 @@ export function AIWorkforce() {
         <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
           <div className="max-w-2xl">
             <h2 id="workforce-heading" className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-              Meet your AI workforce
+              Meet your AI Project Team
             </h2>
             <p className="mt-4 text-lg text-ink/60">
-              Purpose-built agents that ship out of the box and plug straight into your stack.
+              A specialist for every part of running projects — ready to jump in when you are.
             </p>
           </div>
           <Link
-            href="#get-started"
+            href="#how-it-works"
             className="group inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-primary transition-colors hover:text-blue-700"
           >
-            Explore Agent Marketplace
+            See how it works
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
           </Link>
         </div>

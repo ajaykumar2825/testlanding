@@ -6,6 +6,7 @@ import { HowItWorks } from '@/components/sections/HowItWorks';
 import { AIWorkforce } from '@/components/sections/AIWorkforce';
 import { WhyAgentForge } from '@/components/sections/WhyAgentForge';
 import { FAQ } from '@/components/sections/FAQ';
+import { StartupTeams } from '@/components/sections/StartupTeams';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { Footer } from '@/components/sections/Footer';
 
@@ -21,6 +22,7 @@ export default function Home() {
         <AIWorkforce />
         <WhyAgentForge />
         <FAQ />
+        <StartupTeams />
         <FinalCTA />
       </main>
       <Footer />
